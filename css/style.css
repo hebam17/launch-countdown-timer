@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap");
+@-webkit-keyframes flip-half {
+  100% {
+    transform: rotateX(90deg);
+    transform-origin: 100% 100%;
+  }
+}
+@keyframes flip-half {
+  100% {
+    transform: rotateX(90deg);
+    transform-origin: 100% 100%;
+  }
+}
+@-webkit-keyframes flip-complete {
+  100% {
+    transform: rotateX(360deg);
+    transform-origin: 0% 0%;
+  }
+}
+@keyframes flip-complete {
+  100% {
+    transform: rotateX(360deg);
+    transform-origin: 0% 0%;
+  }
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: "Red Hat Text", sans-serif;
+}
+
+body,
+html {
+  margin: 0;
+}
+
+body {
+  background: hsl(235deg, 16%, 14%) url("../images/bg-stars.svg");
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+header {
+  padding: 8rem;
+  border: solid 2px white;
+}
+header h1 {
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.6rem;
+  font-size: 1.2rem;
+}
+
+main {
+  text-align: center;
+  margin: 0;
+}
+
+.card-container p.label {
+  font-size: 1.2rem;
+  color: hsl(237deg, 18%, 59%);
+  font-weight: 700;
+  letter-spacing: 0.6rem;
+  margin-top: 2rem;
+}
+
+.card {
+  display: inline-flex;
+  flex-direction: column;
+  height: 11.3rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 15px 0px -2px rgb(25, 26, 36);
+}
+.card .card-up-back,
+.card .card-up-front,
+.card .card-down-back,
+.card .card-down-front {
+  background: white;
+  padding: 2rem 3rem;
+  font-size: 5.5rem;
+  display: flex;
+  height: 50%;
+  overflow: hidden;
+  color: hsl(345deg, 95%, 68%);
+}
+.card .card-up-back,
+.card .card-up-front {
+  display: flex;
+  align-items: flex-start;
+  background: rgb(44, 44, 68);
+}
+.card .card-down-back,
+.card .card-down-front {
+  display: flex;
+  align-items: flex-end;
+  background: hsl(236deg, 21%, 26%);
+}
+.card .card-up-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.card .card-down-front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.card #left-corner {
+  position: absolute;
+  top: 50%;
+  background: hsl(234deg, 17%, 12%);
+  padding: 0.5rem 0.25rem;
+  border-radius: 0% 100% 100% 0%/100% 48% 52% 0%;
+  transform: translateY(-50%);
+  left: 0;
+}
+.card #right-corner {
+  position: absolute;
+  top: 50%;
+  background: hsl(234deg, 17%, 12%);
+  padding: 0.5rem 0.25rem;
+  border-radius: 100% 0% 0% 100%/47% 0% 100% 53%;
+  transform: translateY(-50%);
+  right: 0;
+}
+.card .card-up-front {
+  transform: rotateX(0deg);
+  transform-origin: 100% 100%;
+  -webkit-animation-name: flip-half;
+          animation-name: flip-half;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+}
+.card .card-down-front {
+  transform: rotateX(270deg);
+  transform-origin: 0% 0%;
+  -webkit-animation-name: flip-complete;
+          animation-name: flip-complete;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+}
+
+footer {
+  background: url("../images/pattern-hills.svg") no-repeat top;
+  background-size: cover;
+  width: 100%;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 20vh;
+  text-align: center;
+  padding-top: 11vh;
+}
+footer .social {
+  padding: 1rem;
+}/*# sourceMappingURL=style.css.map */
