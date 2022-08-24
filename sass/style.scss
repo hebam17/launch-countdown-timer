@@ -52,13 +52,14 @@ body {
   text-align: center;
   width: 100vw;
   height: 100vh;
-  overflow-y: hidden;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
 }
 // HEADER START
 
 header {
-  padding: 8rem;
-  border: solid 2px white;
+  padding: 10rem 8rem 8rem 8rem;
+  text-align: center;
 
   h1 {
     color: white;
@@ -70,18 +71,26 @@ header {
 // HEADER END
 // THE MAIN PART START
 main {
-  // position: relative;
   text-align: center;
-
-  // border: solid 1px red;
   margin: 0;
 }
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+}
+
 // a single card
 
 .card-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
   // LABEL
+
   p.label {
-    font-size: 1.2rem;
+    font-size: $body-font-size;
     color: $grayish-blue;
     font-weight: 700;
     letter-spacing: 0.6rem;
@@ -91,42 +100,47 @@ main {
 .card {
   display: inline-flex;
   flex-direction: column;
-  height: 11.3rem;
-  // border: solid red;
+  height: 11rem;
+  text-align: center;
+  width: 11rem;
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
   -webkit-box-shadow: 0px 15px 0px -2px rgba(25, 26, 36, 1);
   -moz-box-shadow: 0px 15px 0px -2px rgba(25, 26, 36, 1);
   box-shadow: 0px 15px 0px -2px rgba(25, 26, 36, 1);
+  margin: auto 1rem;
 
   .card-up-back,
   .card-up-front,
   .card-down-back,
   .card-down-front {
     background: white;
-    padding: 2rem 3rem;
+    padding: 1.8rem 2.2rem;
+    width: 100%;
     font-size: 5.5rem;
     display: flex;
-    // border: solid black;
     height: 50%;
     overflow: hidden;
-    // justify-content: center;
-    // align-items: center;
     color: $soft-red;
+    text-align: center !important;
+  }
+  @mixin card-up-down() {
+    display: flex;
+    justify-content: center;
+    text-align: center !important;
   }
   .card-up-back,
   .card-up-front {
-    display: flex;
+    @include card-up-down();
     align-items: flex-start;
     background: $card-color;
   }
 
   .card-down-back,
   .card-down-front {
-    display: flex;
+    @include card-up-down();
     align-items: flex-end;
-    // border-top: solid 1px rgba(53, 53, 77, 255);
     background: $dark-desaturated-blue;
   }
 
@@ -152,6 +166,7 @@ main {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     left: 0;
+    z-index: 1;
   }
 
   #right-corner {
@@ -163,22 +178,20 @@ main {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     right: 0;
+    z-index: 1;
   }
 
   // APPLY ANIMATION
   .card-up-front {
     transform: rotateX(0deg);
     transform-origin: 100% 100%;
-    animation-name: flip-half;
-    animation-duration: 0.3s;
+    animation: flip-half 250ms ease-in;
   }
 
   .card-down-front {
     transform: rotateX(270deg);
     transform-origin: 0% 0%;
-    animation-name: flip-complete;
-    animation-delay: 0.3s;
-    animation-duration: 0.3s;
+    animation: flip-complete 250ms ease-out 250ms;
   }
 }
 
@@ -193,14 +206,122 @@ footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 20vh;
+  height: 22vh;
   text-align: center;
-  // border: solid white;
-  padding-top: 11vh;
+  padding-top: 12vh;
 
   // icons
   .social {
     padding: 1rem;
+
+    &:hover {
+      cursor: pointer;
+      filter: invert(56%) sepia(17%) saturate(3625%) hue-rotate(308deg)
+        brightness(97%) contrast(102%);
+    }
   }
 }
 // FOOTER END
+
+// MEDIAQUERY
+@media screen and (max-width: 1200px) {
+  body {
+    overflow-y: auto;
+  }
+
+  header {
+    padding: 6rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  header {
+    padding: 5rem;
+
+    h1 {
+      font-size: 1rem;
+    }
+  }
+
+  footer {
+    height: 18vh;
+    padding-top: 9vh;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .card {
+    height: 8.3rem;
+    width: 8.3rem;
+
+    .card-up-back,
+    .card-up-front,
+    .card-down-back,
+    .card-down-front {
+      padding: 1.5rem 2rem !important;
+      font-size: 4rem;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  header {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+
+  footer {
+    height: 18vh;
+    padding-top: 9vh;
+  }
+
+  .card-container {
+    p.label {
+      font-size: 12px;
+      letter-spacing: 0.2rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  .card {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 8px 0px -2px rgba(25, 26, 36, 1);
+    -moz-box-shadow: 0px 8px 0px -2px rgba(25, 26, 36, 1);
+    box-shadow: 0px 8px 0px -2px rgba(25, 26, 36, 1);
+
+    .card-up-back,
+    .card-up-front,
+    .card-down-back,
+    .card-down-front {
+      padding: 1rem 1.2rem;
+      font-size: 3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  body {
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+  .card {
+    height: 7rem;
+    width: 6rem;
+
+    .card-up-back,
+    .card-up-front,
+    .card-down-back,
+    .card-down-front {
+      padding: 1rem 1.2rem;
+      font-size: 3rem;
+    }
+  }
+
+  footer {
+    height: 20vh;
+    padding-top: 10vh;
+  }
+}

@@ -40,12 +40,13 @@ body {
   text-align: center;
   width: 100vw;
   height: 100vh;
-  overflow-y: hidden;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
 }
 
 header {
-  padding: 8rem;
-  border: solid 2px white;
+  padding: 10rem 8rem 8rem 8rem;
+  text-align: center;
 }
 header h1 {
   color: white;
@@ -59,8 +60,19 @@ main {
   margin: 0;
 }
 
+.cards-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+}
 .card-container p.label {
-  font-size: 1.2rem;
+  font-size: 14px;
   color: hsl(237deg, 18%, 59%);
   font-weight: 700;
   letter-spacing: 0.6rem;
@@ -70,33 +82,42 @@ main {
 .card {
   display: inline-flex;
   flex-direction: column;
-  height: 11.3rem;
+  height: 11rem;
+  text-align: center;
+  width: 11rem;
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
   box-shadow: 0px 15px 0px -2px rgb(25, 26, 36);
+  margin: auto 1rem;
 }
 .card .card-up-back,
 .card .card-up-front,
 .card .card-down-back,
 .card .card-down-front {
   background: white;
-  padding: 2rem 3rem;
+  padding: 1.8rem 2.2rem;
+  width: 100%;
   font-size: 5.5rem;
   display: flex;
   height: 50%;
   overflow: hidden;
   color: hsl(345deg, 95%, 68%);
+  text-align: center !important;
 }
 .card .card-up-back,
 .card .card-up-front {
   display: flex;
+  justify-content: center;
+  text-align: center !important;
   align-items: flex-start;
   background: rgb(44, 44, 68);
 }
 .card .card-down-back,
 .card .card-down-front {
   display: flex;
+  justify-content: center;
+  text-align: center !important;
   align-items: flex-end;
   background: hsl(236deg, 21%, 26%);
 }
@@ -118,6 +139,7 @@ main {
   border-radius: 0% 100% 100% 0%/100% 48% 52% 0%;
   transform: translateY(-50%);
   left: 0;
+  z-index: 1;
 }
 .card #right-corner {
   position: absolute;
@@ -127,24 +149,19 @@ main {
   border-radius: 100% 0% 0% 100%/47% 0% 100% 53%;
   transform: translateY(-50%);
   right: 0;
+  z-index: 1;
 }
 .card .card-up-front {
   transform: rotateX(0deg);
   transform-origin: 100% 100%;
-  -webkit-animation-name: flip-half;
-          animation-name: flip-half;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
+  -webkit-animation: flip-half 250ms ease-in;
+          animation: flip-half 250ms ease-in;
 }
 .card .card-down-front {
   transform: rotateX(270deg);
   transform-origin: 0% 0%;
-  -webkit-animation-name: flip-complete;
-          animation-name: flip-complete;
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
+  -webkit-animation: flip-complete 250ms ease-out 250ms;
+          animation: flip-complete 250ms ease-out 250ms;
 }
 
 footer {
@@ -155,10 +172,97 @@ footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 20vh;
+  height: 22vh;
   text-align: center;
-  padding-top: 11vh;
+  padding-top: 12vh;
 }
 footer .social {
   padding: 1rem;
+}
+footer .social:hover {
+  cursor: pointer;
+  filter: invert(56%) sepia(17%) saturate(3625%) hue-rotate(308deg) brightness(97%) contrast(102%);
+}
+
+@media screen and (max-width: 1200px) {
+  body {
+    overflow-y: auto;
+  }
+  header {
+    padding: 6rem;
+  }
+}
+@media screen and (max-width: 1000px) {
+  header {
+    padding: 5rem;
+  }
+  header h1 {
+    font-size: 1rem;
+  }
+  footer {
+    height: 18vh;
+    padding-top: 9vh;
+  }
+}
+@media screen and (max-width: 900px) {
+  .card {
+    height: 8.3rem;
+    width: 8.3rem;
+  }
+  .card .card-up-back,
+.card .card-up-front,
+.card .card-down-back,
+.card .card-down-front {
+    padding: 1.5rem 2rem !important;
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  header {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+  footer {
+    height: 18vh;
+    padding-top: 9vh;
+  }
+  .card-container p.label {
+    font-size: 12px;
+    letter-spacing: 0.2rem;
+    margin-top: 1.5rem;
+  }
+  .card {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 5px;
+    box-shadow: 0px 8px 0px -2px rgb(25, 26, 36);
+  }
+  .card .card-up-back,
+.card .card-up-front,
+.card .card-down-back,
+.card .card-down-front {
+    padding: 1rem 1.2rem;
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  body {
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  .card {
+    height: 7rem;
+    width: 6rem;
+  }
+  .card .card-up-back,
+.card .card-up-front,
+.card .card-down-back,
+.card .card-down-front {
+    padding: 1rem 1.2rem;
+    font-size: 3rem;
+  }
+  footer {
+    height: 20vh;
+    padding-top: 10vh;
+  }
 }/*# sourceMappingURL=style.css.map */
