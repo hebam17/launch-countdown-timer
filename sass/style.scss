@@ -158,7 +158,7 @@ main {
   }
 
   // CORNER
-  #left-corner {
+  .left-corner {
     position: absolute;
     top: 50%;
     background: $very-dark-blue2;
@@ -170,7 +170,7 @@ main {
     z-index: 1;
   }
 
-  #right-corner {
+  .right-corner {
     position: absolute;
     top: 50%;
     background: $very-dark-blue2;
