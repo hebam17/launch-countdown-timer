@@ -59,7 +59,7 @@ body {
 // HEADER START
 
 header {
-  padding: 10rem 8rem 8rem 8rem;
+  padding: 7rem 6rem 6rem 6rem;
   text-align: center;
 
   h1 {
@@ -101,9 +101,9 @@ main {
 .card {
   display: inline-flex;
   flex-direction: column;
-  height: 11rem;
+  height: 9.2rem;
+  width: 9.5rem;
   text-align: center;
-  width: 11rem;
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
@@ -117,9 +117,9 @@ main {
   .card-down-back,
   .card-down-front {
     background: white;
-    padding: 1.8rem 2.2rem;
+    padding: 1.6rem 2.1rem;
     width: 100%;
-    font-size: 5.5rem;
+    font-size: 4.5rem;
     display: flex;
     height: 50%;
     overflow: hidden;
