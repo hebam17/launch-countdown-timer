@@ -30,7 +30,7 @@ $font-family: "Red Hat Text", sans-serif;
 
 @keyframes flip-complete {
   100% {
-    transform: rotateX(360deg);
+    transform: rotateX(180deg);
     transform-origin: 0% 0%;
   }
 }
@@ -53,8 +53,7 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   padding-bottom: 25vh;
-  overflow-x: auto !important;
-  overflow-y: auto !important;
+  overflow: auto;
 }
 // HEADER START
 
@@ -124,13 +123,15 @@ main {
     height: 50%;
     overflow: hidden;
     color: $soft-red;
-    text-align: center !important;
+    text-align: center;
   }
+
   @mixin card-up-down() {
     display: flex;
     justify-content: center;
-    text-align: center !important;
+    text-align: center;
   }
+
   .card-up-back,
   .card-up-front {
     @include card-up-down();
@@ -190,7 +191,7 @@ main {
   }
 
   .card-down-front {
-    transform: rotateX(270deg);
+    transform: rotateX(90deg);
     transform-origin: 0% 0%;
     animation: flip-complete 250ms ease-out 250ms;
   }
@@ -216,9 +217,9 @@ footer {
     padding: 1rem;
 
     &:hover {
+      filter: invert(98%) sepia(100%) saturate(9%) hue-rotate(188deg)
+        brightness(102%) contrast(108%);
       cursor: pointer;
-      filter: invert(56%) sepia(17%) saturate(3625%) hue-rotate(308deg)
-        brightness(97%) contrast(102%);
     }
   }
 }
@@ -226,10 +227,6 @@ footer {
 
 // MEDIAQUERY
 @media screen and (max-width: 1200px) {
-  body {
-    overflow-y: auto;
-  }
-
   header {
     padding: 6rem;
   }
@@ -259,7 +256,7 @@ footer {
     .card-up-front,
     .card-down-back,
     .card-down-front {
-      padding: 1.5rem 2rem !important;
+      padding: 1.5rem 2rem;
       font-size: 4rem;
     }
   }
@@ -303,11 +300,6 @@ footer {
 }
 
 @media screen and (max-width: 550px) {
-  body {
-    overflow-y: auto;
-    overflow-x: auto;
-  }
-
   .card {
     height: 7rem;
     width: 6rem;
