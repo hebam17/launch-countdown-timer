@@ -4,4 +4,6 @@
 
 - I used html, scss, vanilla js to achieve the goal
 
-![the time tracking dashboard](./design/desktop-design.jpg)
+![This is how it looks like](./design/desktop-design.jpg)
+
+### The app https://hebam17.github.io/launch-countdown-timer/

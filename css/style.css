@@ -1,25 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap");
-@-webkit-keyframes flip-half {
-  100% {
-    transform: rotateX(90deg);
-    transform-origin: 100% 100%;
-  }
-}
 @keyframes flip-half {
   100% {
     transform: rotateX(90deg);
     transform-origin: 100% 100%;
   }
 }
-@-webkit-keyframes flip-complete {
-  100% {
-    transform: rotateX(360deg);
-    transform-origin: 0% 0%;
-  }
-}
 @keyframes flip-complete {
   100% {
-    transform: rotateX(360deg);
+    transform: rotateX(180deg);
     transform-origin: 0% 0%;
   }
 }
@@ -36,17 +24,16 @@ html {
 }
 
 body {
-  background: hsl(235deg, 16%, 14%) url("../images/bg-stars.svg");
+  background: hsl(235, 16%, 14%) url("../images/bg-stars.svg");
   text-align: center;
   min-width: 100vw;
   min-height: 100vh;
   padding-bottom: 25vh;
-  overflow-x: auto !important;
-  overflow-y: auto !important;
+  overflow: auto;
 }
 
 header {
-  padding: 7rem 6rem 6rem 6rem;
+  padding: 7rem 5rem 5rem 6rem;
   text-align: center;
 }
 header h1 {
@@ -74,7 +61,7 @@ main {
 }
 .card-container p.label {
   font-size: 14px;
-  color: hsl(237deg, 18%, 59%);
+  color: hsl(237, 18%, 59%);
   font-weight: 700;
   letter-spacing: 0.6rem;
   margin-top: 2rem;
@@ -103,14 +90,14 @@ main {
   display: flex;
   height: 50%;
   overflow: hidden;
-  color: hsl(345deg, 95%, 68%);
-  text-align: center !important;
+  color: hsl(345, 95%, 68%);
+  text-align: center;
 }
 .card .card-up-back,
 .card .card-up-front {
   display: flex;
   justify-content: center;
-  text-align: center !important;
+  text-align: center;
   align-items: flex-start;
   background: rgb(44, 44, 68);
 }
@@ -118,9 +105,9 @@ main {
 .card .card-down-front {
   display: flex;
   justify-content: center;
-  text-align: center !important;
+  text-align: center;
   align-items: flex-end;
-  background: hsl(236deg, 21%, 26%);
+  background: hsl(236, 21%, 26%);
 }
 .card .card-up-front {
   position: absolute;
@@ -135,7 +122,7 @@ main {
 .card .left-corner {
   position: absolute;
   top: 50%;
-  background: hsl(234deg, 17%, 12%);
+  background: hsl(234, 17%, 12%);
   padding: 0.5rem 0.25rem;
   border-radius: 0% 100% 100% 0%/100% 48% 52% 0%;
   transform: translateY(-50%);
@@ -145,7 +132,7 @@ main {
 .card .right-corner {
   position: absolute;
   top: 50%;
-  background: hsl(234deg, 17%, 12%);
+  background: hsl(234, 17%, 12%);
   padding: 0.5rem 0.25rem;
   border-radius: 100% 0% 0% 100%/47% 0% 100% 53%;
   transform: translateY(-50%);
@@ -155,14 +142,12 @@ main {
 .card .card-up-front {
   transform: rotateX(0deg);
   transform-origin: 100% 100%;
-  -webkit-animation: flip-half 250ms ease-in;
-          animation: flip-half 250ms ease-in;
+  animation: flip-half 250ms ease-in;
 }
 .card .card-down-front {
-  transform: rotateX(270deg);
+  transform: rotateX(90deg);
   transform-origin: 0% 0%;
-  -webkit-animation: flip-complete 250ms ease-out 250ms;
-          animation: flip-complete 250ms ease-out 250ms;
+  animation: flip-complete 250ms ease-out 250ms;
 }
 
 footer {
@@ -185,15 +170,12 @@ footer .social:hover {
   cursor: pointer;
 }
 
-@media screen and (max-width: 1200px) {
-  body {
-    overflow-y: auto;
-  }
+@media screen and (max-width: 1200px) and (min-width: 1001px) {
   header {
-    padding: 6rem;
+    padding: 4rem;
   }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) and (min-width: 901px) {
   header {
     padding: 5rem;
   }
@@ -211,10 +193,10 @@ footer .social:hover {
     width: 8.3rem;
   }
   .card .card-up-back,
-.card .card-up-front,
-.card .card-down-back,
-.card .card-down-front {
-    padding: 1.5rem 2rem !important;
+  .card .card-up-front,
+  .card .card-down-back,
+  .card .card-down-front {
+    padding: 1.5rem 2rem;
     font-size: 4rem;
   }
 }
@@ -239,26 +221,22 @@ footer .social:hover {
     box-shadow: 0px 8px 0px -2px rgb(25, 26, 36);
   }
   .card .card-up-back,
-.card .card-up-front,
-.card .card-down-back,
-.card .card-down-front {
+  .card .card-up-front,
+  .card .card-down-back,
+  .card .card-down-front {
     padding: 1rem 1.2rem;
     font-size: 3rem;
   }
 }
 @media screen and (max-width: 550px) {
-  body {
-    overflow-y: auto;
-    overflow-x: auto;
-  }
   .card {
     height: 7rem;
     width: 6rem;
   }
   .card .card-up-back,
-.card .card-up-front,
-.card .card-down-back,
-.card .card-down-front {
+  .card .card-up-front,
+  .card .card-down-back,
+  .card .card-down-front {
     padding: 1rem 1.2rem;
     font-size: 3rem;
   }
