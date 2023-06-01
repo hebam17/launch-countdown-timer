@@ -24,14 +24,12 @@ $font-family: "Red Hat Text", sans-serif;
 @keyframes flip-half {
   100% {
     transform: rotateX(90deg);
-    transform-origin: 100% 100%;
   }
 }
 
 @keyframes flip-complete {
   100% {
-    transform: rotateX(180deg);
-    transform-origin: 0% 0%;
+    transform: rotateX(0deg);
   }
 }
 
@@ -50,8 +48,6 @@ html {
 body {
   background: $very-dark-blue1 url("../images/bg-stars.svg");
   text-align: center;
-  min-width: 100vw;
-  min-height: 100vh;
   padding-bottom: 25vh;
   overflow: auto;
 }
@@ -146,18 +142,6 @@ main {
     background: $dark-desaturated-blue;
   }
 
-  .card-up-front {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .card-down-front {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-
   // CORNER
   .left-corner {
     position: absolute;
@@ -185,14 +169,20 @@ main {
 
   // APPLY ANIMATION
   .card-up-front {
+    position: absolute;
+    top: 0;
+    left: 0;
     transform: rotateX(0deg);
     transform-origin: 100% 100%;
     animation: flip-half 250ms ease-in;
   }
 
   .card-down-front {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     transform: rotateX(90deg);
-    transform-origin: 0% 0%;
+    transform-origin: top;
     animation: flip-complete 250ms ease-out 250ms;
   }
 }
@@ -264,8 +254,7 @@ footer {
 
 @media screen and (max-width: 700px) {
   header {
-    padding-top: 5rem;
-    padding-bottom: 3rem;
+    padding: 5rem 0 3rem;
   }
 
   footer {
@@ -293,13 +282,22 @@ footer {
     .card-up-front,
     .card-down-back,
     .card-down-front {
-      padding: 1rem 1.2rem;
+      padding: 1.5rem 1.2rem;
       font-size: 3rem;
     }
   }
 }
 
 @media screen and (max-width: 550px) {
+  header {
+    padding: 5rem 0 3rem;
+  }
+
+  .cards-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .card {
     height: 7rem;
     width: 6rem;
@@ -308,7 +306,7 @@ footer {
     .card-up-front,
     .card-down-back,
     .card-down-front {
-      padding: 1rem 1.2rem;
+      padding: 1.5rem 1.2rem;
       font-size: 3rem;
     }
   }

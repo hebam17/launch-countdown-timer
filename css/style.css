@@ -2,13 +2,11 @@
 @keyframes flip-half {
   100% {
     transform: rotateX(90deg);
-    transform-origin: 100% 100%;
   }
 }
 @keyframes flip-complete {
   100% {
-    transform: rotateX(180deg);
-    transform-origin: 0% 0%;
+    transform: rotateX(0deg);
   }
 }
 *,
@@ -26,8 +24,6 @@ html {
 body {
   background: hsl(235, 16%, 14%) url("../images/bg-stars.svg");
   text-align: center;
-  min-width: 100vw;
-  min-height: 100vh;
   padding-bottom: 25vh;
   overflow: auto;
 }
@@ -109,16 +105,6 @@ main {
   align-items: flex-end;
   background: hsl(236, 21%, 26%);
 }
-.card .card-up-front {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.card .card-down-front {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
 .card .left-corner {
   position: absolute;
   top: 50%;
@@ -140,13 +126,19 @@ main {
   z-index: 1;
 }
 .card .card-up-front {
+  position: absolute;
+  top: 0;
+  left: 0;
   transform: rotateX(0deg);
   transform-origin: 100% 100%;
   animation: flip-half 250ms ease-in;
 }
 .card .card-down-front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   transform: rotateX(90deg);
-  transform-origin: 0% 0%;
+  transform-origin: top;
   animation: flip-complete 250ms ease-out 250ms;
 }
 
@@ -202,8 +194,7 @@ footer .social:hover {
 }
 @media screen and (max-width: 700px) {
   header {
-    padding-top: 5rem;
-    padding-bottom: 3rem;
+    padding: 5rem 0 3rem;
   }
   footer {
     height: 18vh;
@@ -224,11 +215,18 @@ footer .social:hover {
   .card .card-up-front,
   .card .card-down-back,
   .card .card-down-front {
-    padding: 1rem 1.2rem;
+    padding: 1.5rem 1.2rem;
     font-size: 3rem;
   }
 }
 @media screen and (max-width: 550px) {
+  header {
+    padding: 5rem 0 3rem;
+  }
+  .cards-container {
+    display: flex;
+    justify-content: space-between;
+  }
   .card {
     height: 7rem;
     width: 6rem;
@@ -237,7 +235,7 @@ footer .social:hover {
   .card .card-up-front,
   .card .card-down-back,
   .card .card-down-front {
-    padding: 1rem 1.2rem;
+    padding: 1.5rem 1.2rem;
     font-size: 3rem;
   }
   footer {
